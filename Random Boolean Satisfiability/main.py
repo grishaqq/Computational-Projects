@@ -68,29 +68,6 @@ if False:
         f"number of iterations without damping temperature: {iterations_history[0]} \nnumber of iterations with damping temperature: {iterations_history[1]}"
     )
     plt.show()
-    """
-    number of iterations without damping temperature: 176,748,202 
-    number of iterations with damping temperature: 43,668,696
-    for TEMP = 0.02 / TEMP_M = 0.999 / nmax = 100 = mmax / mstep = 5 = nstep
-    gives some evidence that damping temperature helps us find optimal solution faster
-
-    number of iterations without damping temperature: 20,743,203 
-    number of iterations with damping temperature: 16,296,582
-    for TEMP = 0.016 / TEMP_M = 0.999
-
-    number of iterations without damping temperature: 7,075,610 
-    number of iterations with damping temperature: 4,552,950
-    for TEMP = 0.013 / TEMP_M = 0.999
-
-    number of iterations without damping temperature: 2,861,034 
-    number of iterations with damping temperature: 5,083,254
-    for TEMP = 0.01 / TEMP_M = 0.999
-
-    number of iterations without damping temperature: 11,206,138 
-    number of iterations with damping temperature: 6,570,280
-    for TEMP = 0.0115 / TEMP_M = 0.999
-    """
-
 
 if True:
     # plots temperature/#iterations graph where #iterations is sum over all iterations needed in project to get perfect results
