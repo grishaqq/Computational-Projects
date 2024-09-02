@@ -3,7 +3,7 @@ from pysat.formula import *
 import random
 import numpy as np
 
-TEMP = 0.015
+temp = 0.015
 TEMP_M = 0.999
 r = 0.3  # energy constant / if clause is satisfied multiple times, its energy is 1 + r + r^2 + ...
 # bc = 1.5 # bernouli constant for switching up multiple variables in modify_guess

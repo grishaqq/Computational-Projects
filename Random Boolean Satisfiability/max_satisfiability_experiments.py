@@ -7,7 +7,7 @@ from max_satisfiability_slow import max_satisfiability
 from satisfiability_experiments import set_experiments
 
 
-def generate_probability(energy_change, m, t=TEMP):
+def generate_probability(energy_change, m, t=temp):
     """returns probability of changing energy at given temperature"""
     return min(1, math.exp((energy_change / m) / t))
 
@@ -109,7 +109,7 @@ def estimate_max_satisfiability(cnf, until_value=-1, damp_temp=False, max_tries=
     # max_tries = max(max_tries_coeff*(n+m), 500)
     # if until_value == -1 then i < max_tries
     # if until_value != -1 then sat < until_value
-    t = TEMP
+    t = temp
     while (until_value == -1 and i < max_tries) or (
         until_value != -1 and (max_sat / m) + EPS < until_value
     ):
@@ -128,7 +128,7 @@ def estimate_max_satisfiability(cnf, until_value=-1, damp_temp=False, max_tries=
             t *= TEMP_M
             if t < 0.01:
                 # algorithm is likely stuck, so we restart the temperature
-                t = TEMP
+                t = temp
         if decision(generate_probability(energy_change, m, t)):
             # print(f'{sat} {new_sat} {energy} {new_energy} {generate_probability(energy_change, m)}w')
             sat = new_sat
@@ -202,14 +202,14 @@ def plot_log_iterations_to_reach_ans(
 
 def plot_temperature_vs_iterations(proj=Project(nmax=100, mmax=100, mstep=7, nstep=7)):
     """plots temperature (with and without damping) against #iterations needed to get perfect results in given project"""
-    global TEMP
+    global temp
     temperatures = np.linspace(0.015, 0.025, 10)
     regular_iterations = np.empty_like(temperatures)
     damped_iterations = np.empty_like(temperatures)
     print("Setting experiments ... ")
     for i in range(len(temperatures)):
-        TEMP = temperatures[i]
-        print(f"temperature: {TEMP}")
+        temp = temperatures[i]
+        print(f"temperature: {temp}")
         plot_iterations_to_reach_ans(proj, do_plot=False)
         plot_iterations_to_reach_ans(proj, damp_temp=True, do_plot=False)
         regular_iterations[i] = iterations_history[-2]
