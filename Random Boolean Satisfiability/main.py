@@ -69,7 +69,8 @@ if False:
     )
     plt.show()
 
-if True:
+if False:
+    # this feature needs more testing
     # plots temperature/#iterations graph where #iterations is sum over all iterations needed in project to get perfect results
     plot_temperature_vs_iterations()
     plt.show()
